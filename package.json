@@ -1,0 +1,55 @@
+{
+  "name": "@bugfixes/ui-themes",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=7.0.0"
+  },
+  "main": "./lib/main/index.js",
+  "module": "./lib/module/index.js",
+  "types": "./lib/types/index.d.ts",
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "url": "git+https://github.com/bugfixes/ui-themes.git",
+    "type": "git"
+  },
+  "bugs": {
+    "url": "https://github.com/bugfixes/ui-themes/issues"
+  },
+  "homepage": "https://bugfix.es",
+  "keywords": [
+    "bugfixes",
+    "theme"
+  ],
+  "scripts": {
+    "build": "npm run build:main && npm run build:types",
+    "build:main": "rollup -c",
+    "build:types": "tsc src/*.ts --declaration true --declarationDir './lib/types' --emitDeclarationOnly true --esModuleInterop true",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prepublish": "npm run build",
+    "preversion": "npm run build",
+    "release": "standard-version",
+    "setup:hooks": "husky install"
+  },
+  "devDependencies": {
+    "@bugfixes/babel-preset": "^0.1.0",
+    "@bugfixes/eslint-config": "^0.1.1",
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^20.0.0",
+    "@rollup/plugin-typescript": "^8.2.5",
+    "@types/jest": "^27.0.1",
+    "babel-plugin-polished": "^1.1.0",
+    "husky": "^7.0.1",
+    "jest": "^27.0.6",
+    "jest-extended": "^0.11.5",
+    "polished": "^4.1.3",
+    "rollup": "^2.56.2",
+    "standard-version": "^9.3.1",
+    "typescript": "^4.3.5"
+  }
+}
